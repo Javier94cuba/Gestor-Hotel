@@ -7,13 +7,13 @@ import {
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
-  {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
-  },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: 'Tienda Virtual', href: '/Tienda', icon: HomeIcon },
+  { name: 'Carrito de compras', href: '/Carrito', icon: UserGroupIcon },
+  { name: 'Ofertas y combos', href: '/Ofertas', icon: UserGroupIcon },
+  { name: 'Envios a domicilio', href: '/Envios', icon: UserGroupIcon },
+  { name: 'Nuevos artículos', href: '/Articulos', icon: UserGroupIcon },
+  {name: 'Preguntas frecuentes',href: '/Preguntas',icon: DocumentDuplicateIcon,},
+  { name: 'Soporte', href: '/Soporte', icon: UserGroupIcon },
 ];
 
 export default function NavLinks() {
