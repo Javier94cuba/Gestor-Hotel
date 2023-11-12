@@ -6,10 +6,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${montserrat.className} antialiased`}>
+    <html lang="es">
+      <body className={`${montserrat.className} antialiased flex`}>
         {children}
-        <footer className='py-10 flex justify-center items-center'>Sitio web creado por Javier_Lopéz</footer>
         </body>
     </html>
   );
