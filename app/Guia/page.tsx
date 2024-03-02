@@ -5,6 +5,7 @@ function Guia_app() {
     <>
      <div className='mb-3 text-2xl'>
       <Breadcumb name="Guía"/>
+      
     </div>
     </>
   )

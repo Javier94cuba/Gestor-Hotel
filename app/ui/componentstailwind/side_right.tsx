@@ -1,22 +1,22 @@
 const incentives = [
     {
-      name: 'Sistema de reservas',
-      description: "Sistema de reservas,  ",
+      name: 'Ingreso de productos',
+      description: "Sistema para la gestión de productos",
       imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-delivery-light.svg',
     },
     {
-      name: 'Atención al cliente 24/7',
-      description: 'Whatsapp para nuevas funcionalidades',
+      name: 'Actualizaciones via whatsapp',
+      description: 'Se le respondera al usuario admin, para futuras actualizaciones por medio de whatsapp',
       imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-chat-light.svg',
     },
     {
-      name: 'Gestiona tus procesos',
-      description: "Recepción, organización de eventos, gestión de alimentos y bebidas, tours, carros entre otros",
+      name: 'Gestion de productos',
+      description: "Organización de productos, almacen, ipv, salarios, efectivo en caja, ganancias del día",
       imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-fast-checkout-light.svg',
     },
     {
       name: 'Ofertas',
-      description: "Prueba gratis la app por un mes",
+      description: "Prueba gratis la app por un mes y danos tu opinión",
       imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-gift-card-light.svg',
     },
   ]

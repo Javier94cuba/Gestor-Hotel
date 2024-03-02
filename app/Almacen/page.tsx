@@ -1,13 +1,13 @@
 import React from 'react'
 import Breadcumb from '../ui/componentstailwind/breadcumb'
-function Calendario() {
+function Almacen() {
   return (
     <>
      <div className='mb-3 text-2xl'>
-      <Breadcumb name="Calendario"/>
+      <Breadcumb name="Almacen"/>
     </div>
     </>
   )
 }
 
-export default Calendario
+export default Almacen
