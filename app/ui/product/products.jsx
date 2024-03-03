@@ -55,7 +55,7 @@ function products() {
                   className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                 >
                   <MinusIcon className="h-5 w-5 text-red-600" aria-hidden="true" />
-                Eliminar
+                Elimina
                 </a>
               </div>
             </div>
