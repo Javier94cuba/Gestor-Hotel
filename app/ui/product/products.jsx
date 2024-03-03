@@ -1,5 +1,5 @@
 import React from 'react'
-import { EnvelopeIcon, PhoneIcon,PlusIcon,MinusIcon } from '@heroicons/react/20/solid'
+import {PlusIcon,MinusIcon } from '@heroicons/react/20/solid'
 
 const product = [
   {
@@ -28,8 +28,6 @@ function products() {
           <h4 className="mt-1 mb-4 text-sm font-semibold text-blue-500">{product.name}</h4>   
             <h3 className="mt-2 text-sm font-medium text-gray-900">Precio: {product.telephone}</h3>
             <dl className="mt-1 flex flex-grow flex-col justify-between">
-              <dt className="sr-only">Title</dt>
-              {/* <dd className="text-sm mt-2 text-red-500">{product.title}</dd> */}
               <dt className="sr-only">Role</dt>
               <dd className="mt-3">
                 <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
