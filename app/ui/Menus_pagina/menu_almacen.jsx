@@ -1,22 +1,7 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 const tabs = [
-    { name: 'Realizar venta', href: 'http://localhost:3000/Almacen', current: true },
-    { name: 'Actualizar precio', href: '#', current: false },
-    { name: 'Estado de cuenta', href: '#', current: false },
-    { name: 'Cerrar Caja', href: '#', current: false },
+    { name: 'Inventario', href: 'http://localhost:3000/Almacen', current: true },
+    { name: 'Modificar inventario', href: '#', current: false },
+    { name: 'Ultimos ingresos de productos', href: '#', current: false },
   ]
   
   function classNames(...classes) {
@@ -52,7 +37,7 @@ const tabs = [
                   tab.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700',
                   tabIdx === 0 ? 'rounded-l-lg' : '',
                   tabIdx === tabs.length - 1 ? 'rounded-r-lg' : '',
-                  'group relative flex w-40 mr-10 items-center overflow-hidden bg-white py-3 px-5 text-center text-sm font-medium hover:bg-slate-300 focus:z-10'
+                  'group relative flex w-30 mr-5 ml-5 items-center overflow-hidden bg-white py-4 px-2 text-center text-sm font-medium hover:bg-slate-300 focus:z-10'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
               >

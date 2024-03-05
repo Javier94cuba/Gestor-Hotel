@@ -36,8 +36,9 @@
     "app/lib/placeholder-data.js",
     "scripts/seed.js",
     "app/ui/product/products.jsx",
-    "app/Notas/layout.jsx",
-    "app/Notas/page.jsx"
+    "app/Cierre_contable/layout.jsx",
+    "app/Cierre_contable/page.jsx",
+    "app/Guia/page.jsx"
   ],
   "exclude": [
     "node_modules"

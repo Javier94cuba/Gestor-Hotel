@@ -1,14 +1,13 @@
 import React from 'react'
 import Breadcumb from '../ui/componentstailwind/breadcumb'
-function Guia_app() {
+function Lugares() {
   return (
     <>
-     <div className='mb-3 text-2xl'>
-      <Breadcumb name="Guía"/>
-      
+    <div className='mb-3 text-2xl'>
+      <Breadcumb name="Estado de cuenta"/>
     </div>
     </>
   )
 }
 
-export default Guia_app
+export default Lugares

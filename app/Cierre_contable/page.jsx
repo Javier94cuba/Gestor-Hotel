@@ -4,7 +4,7 @@ function Notas() {
   return (
     <>
     <div className='mb-3 text-2xl'>
-      <Breadcumb name="Notas"/>
+      <Breadcumb name="Cierre contable"/>
     </div>
     </>
   )

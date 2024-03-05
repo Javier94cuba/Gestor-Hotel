@@ -1,13 +1,13 @@
 import React from 'react'
 import Breadcumb from '../ui/componentstailwind/breadcumb'
-function Lugares() {
+function Recibir_envio() {
   return (
     <>
     <div className='mb-3 text-2xl'>
-      <Breadcumb name="Lugares"/>
+      <Breadcumb name="Recibir envio"/>
     </div>
     </>
   )
 }
 
-export default Lugares
+export default Recibir_envio

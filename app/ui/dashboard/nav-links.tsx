@@ -14,9 +14,9 @@ import { usePathname } from 'next/navigation';
 const links = [
   { name: 'Venta', href: '/Venta', icon: ShoppingCartIcon },
   { name: 'Almacen', href: '/Almacen', icon: HomeIcon },
-  { name: 'Cierre contable', href: '/Notas', icon: LockClosedIcon },
-  { name: 'Estado de cuenta', href: '/Lugares', icon: CurrencyDollarIcon },
-  { name: 'Recibir envio', href: '/Clientes', icon: ShoppingBagIcon },
+  { name: 'Cierre contable', href: '/Cierre_contable', icon: LockClosedIcon },
+  { name: 'Estado de cuenta', href: '/Estado_de_cuenta', icon: CurrencyDollarIcon },
+  { name: 'Recibir envio', href: '/Recibir_envio', icon: ShoppingBagIcon },
   {name: 'Guia para la app',href: '/Guia',icon: DocumentDuplicateIcon,},
   { name: 'Soporte', href: '/Soporte', icon: UserGroupIcon },
 ];

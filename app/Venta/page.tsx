@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from '../ui/product/products'
 import Breadcrumbs from '../ui/componentstailwind/breadcumb'
-import Buttons from '../ui/Links_por_pagina/button'
+import Menu_venta from '../ui/Menus_pagina/menu_venta'
 
 function Venta() {
   return (
@@ -10,9 +10,8 @@ function Venta() {
       <Breadcrumbs name="Venta de productos"/>
     </div>
     <div className='mb-8'>
-    <Buttons/>
+    <Menu_venta/>
     </div>
-    
     <Product/>
     </>
   )

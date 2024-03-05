@@ -13,12 +13,11 @@ const product = [
     notas: "",
     pasaporte: "",
   },
-  // More people...
 ]
 
 function products() {
   return (
-    <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
       {product.map((product) => (
         <li
           key={product.name}
@@ -44,7 +43,7 @@ function products() {
                   className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                 >
                   <PlusIcon className="h-5 w-5 text-green-600" aria-hidden="true" />
-                  Agregar
+                 Add
                 </a>
               </div>
               <div className="-ml-px flex w-0 flex-1">
@@ -53,7 +52,7 @@ function products() {
                   className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                 >
                   <MinusIcon className="h-5 w-5 text-red-600" aria-hidden="true" />
-                Eliminar
+                Del
                 </a>
               </div>
             </div>
