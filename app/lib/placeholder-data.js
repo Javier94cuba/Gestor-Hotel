@@ -11,19 +11,19 @@ const users = [
 
 const ingresar = [
   {
-    id:'410544b2-4001-4271-9855-fec4b6a6442p',
+    id: '410544b2-4001-4271-9855-fec4b6a6442a',
     name: 'Pepsi lata',
-    amount: '100',
+    amount: 100,
   },
   {
-    id:'410544b2-4001-4271-9855-fec4b6a6442l',
+    id: '410544b2-4001-4271-9855-fec4b6a6442a',
     name: 'Sprite',
-    amount: '100',
+    amount: 100,
   },
   {
-    id:'410544b2-4001-4271-9855-fec4b6a6442m',
+    id: '410544b2-4001-4271-9855-fec4b6a6442a',
     name: 'Cigarro hupman',
-    amount: '100',
+    amount: 100,
   },
 ];
 

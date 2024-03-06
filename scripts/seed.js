@@ -16,7 +16,7 @@ async function seedIngresar(client) {
       CREATE TABLE IF NOT EXISTS ingresar (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
-        amount INT NOT NULL,
+        amount INT NOT NULL
       );
     `;
 
@@ -24,14 +24,14 @@ async function seedIngresar(client) {
 
     // Insert data into the "users" table
     const insertedIngresar = await Promise.all(
-      ingresar.map( (ingreso) => {
-        return client.sql`
+      ingresar.map( 
+        (ingreso) => client.sql`
         INSERT INTO ingresar (id, name, amount)
         VALUES (${ingreso.id}, ${ingreso.name}, ${ingreso.amount})
         ON CONFLICT (id) DO NOTHING;
-      `;
-      }),
-    );
+         `,
+         ),
+        );
 
     console.log(`Seeded ${insertedIngresar.length} ingresar`);
 
