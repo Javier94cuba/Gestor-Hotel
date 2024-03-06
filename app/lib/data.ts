@@ -7,8 +7,27 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  Ingresar,
 } from './definitions';
 import { formatCurrency } from './utils';
+
+export async function fetchIngresar() {
+  try {
+    const data = await sql<Ingresar>`
+      SELECT
+        id,
+        name,
+        amount,
+      FROM ingresar
+    `;
+    
+    const Ingresar = data.rows;
+    return Ingresar;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all customers.');
+  }
+}
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
@@ -39,7 +58,7 @@ export async function fetchLatestInvoices() {
       FROM invoices
       JOIN customers ON invoices.customer_id = customers.id
       ORDER BY invoices.date DESC
-      LIMIT 5`;
+      LIMIT 10`;
 
     const latestInvoices = data.rows.map((invoice) => ({
       ...invoice,

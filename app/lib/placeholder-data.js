@@ -9,6 +9,24 @@ const users = [
   },
 ];
 
+const ingresar = [
+  {
+    id: '1',
+    name: 'Pepsi_lata',
+    amount: '100',
+  },
+  {
+    id: '2',
+    name: 'Sprite',
+    amount: '100',
+  },
+  {
+    id: '3',
+    name: 'Cigarro_hupman',
+    amount: '100',
+  },
+];
+
 const customers = [
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
@@ -185,4 +203,5 @@ module.exports = {
   customers,
   invoices,
   revenue,
+  ingresar,
 };
