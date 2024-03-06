@@ -13,19 +13,11 @@ import { formatCurrency } from './utils';
 
 export async function fetchIngresar() {
   try {
-    const data = await sql<Ingresar>`
-      SELECT
-        id,
-        name,
-        amount,
-      FROM ingresar
-    `;
-    
-    const Ingresar = data.rows;
-    return Ingresar;
+      const data = await sql<Ingresar>`SELECT * FROM ingresar`;
+    return data.rows;
   } catch (err) {
     console.error('Database Error:', err);
-    throw new Error('Failed to fetch all customers.');
+    throw new Error('Fallo al encontrar ultimos envios.');
   }
 }
 

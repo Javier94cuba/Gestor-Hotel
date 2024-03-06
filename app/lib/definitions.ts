@@ -3,7 +3,7 @@
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
 export type Ingresar = {
-  id: number;
+  id: string;
   name: string;
   amount: number;
 }
@@ -45,7 +45,7 @@ export type LatestInvoice = {
   amount: string;
 };
 
-export type ultimosingresos = {
+export type Ultimosingresos = {
   id: string;
   name: string;
   amount: number;
