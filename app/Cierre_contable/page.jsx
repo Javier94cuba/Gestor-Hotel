@@ -2,30 +2,81 @@
 import { use, useState } from 'react'
 import Breadcumb from '../ui/componentstailwind/breadcumb'
 import { number } from 'zod'
+import { Fragment } from 'react'
+
+const locations = [
+  {
+    name: 'Desglose de billetes',
+    people: [
+      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
+      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+    ],
+  },
+  {
+    name: 'Transferencias',
+    people: [
+      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
+      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+    ],
+  },
+  {
+    name: 'Cierre de caja',
+    people: [
+      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
+      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+    ],
+  },
+  {
+    name: 'Gastos del dia',
+    people: [
+      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
+      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+    ],
+  },
+  {
+    name: 'Venta total',
+    people: [
+      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
+      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+    ],
+  },
+  {
+    name: 'Entregar a Richard vt*0.80 - gastos del dia',
+    people: [
+      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
+      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+    ],
+  },
+  // More people...
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
 function Cierre_contable() {
 
-  const [miles ,setMiles] = useState();
-  const [qui,setqui]=useState();
-  const [dos,setdos]=useState();
-  const [cientos ,setCientos] = useState();
-  const [cin,setCin]=useState();
-  const [ven,setVen]=useState();
-  const [die,setDie]=useState();
-  const [Sin,setSin]=useState();
-  const [cup,setCup]=useState();
-  const [valorcup,Setvalorcup]= useState();
-  const [c,setC]=useState();
-  const [eur,setEur]=useState();
-  const [valoreur,Setvaloreur]= useState();
-  const [mlc,setMlc]=useState();
-  const [valormlc,Setvalormlc]= useState();
-  const [nombre,setNombre]=useState("");
-  const [cant,setcant]=useState("");
-  const [precio,setPrecio]=useState("");
-  const [gastos, setGastos] = useState([]);
+  // const [miles ,setMiles] = useState();
+  // const [qui,setqui]=useState();
+  // const [dos,setdos]=useState();
+  // const [cientos ,setCientos] = useState();
+  // const [cin,setCin]=useState();
+  // const [ven,setVen]=useState();
+  // const [die,setDie]=useState();
+  // const [Sin,setSin]=useState();
+  // const [cup,setCup]=useState();
+  // const [valorcup,Setvalorcup]= useState();
+  // const [c,setC]=useState();
+  // const [eur,setEur]=useState();
+  // const [valoreur,Setvaloreur]= useState();
+  // const [mlc,setMlc]=useState();
+  // const [valormlc,Setvalormlc]= useState();
+  // const [nombre,setNombre]=useState("");
+  // const [cant,setcant]=useState("");
+  // const [precio,setPrecio]=useState("");
+  // const [gastos, setGastos] = useState([]);
 
-  let nextID=1;
+  // let nextID=1;
 
 
   return (
@@ -33,7 +84,88 @@ function Cierre_contable() {
     <div className='mb-3 text-2xl'>
       <Breadcumb name="Cierre de Caja"/>
     </div>
-    <div className='text-xl'>
+
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Cierre Contable</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            Cierre economico del dia
+          </p>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Exportar PDF
+          </button>
+        </div>
+      </div>
+      <div className="mt-8 flow-root">
+        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            <table className="min-w-full">
+              <thead className="bg-white">
+                <tr>
+                  <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">
+                    Name
+                  </th>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    Title
+                  </th>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    Email
+                  </th>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    Role
+                  </th>
+                  <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
+                    <span className="sr-only">Edit</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                {locations.map((location) => (
+                  <Fragment key={location.name}>
+                    <tr className="border-t border-gray-200">
+                      <th
+                        colSpan={5}
+                        scope="colgroup"
+                        className="bg-gray-50 py-2 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                      >
+                        {location.name}
+                      </th>
+                    </tr>
+                    {location.people.map((person, personIdx) => (
+                      <tr
+                        key={person.email}
+                        className={classNames(personIdx === 0 ? 'border-gray-300' : 'border-gray-200', 'border-t')}
+                      >
+                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
+                          {person.name}
+                        </td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.title}</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.email}</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.role}</td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                          <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                            Edit<span className="sr-only">, {person.name}</span>
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {/* <div className='text-xl'>
       <h1 className='text-blue-400 text-2xl mt-10 mb-2'>Desglose :</h1>
       <form action="">
   <label className='flex '>
@@ -147,8 +279,8 @@ function Cierre_contable() {
       <h1>
         El 3% del total :  
         {((c*1) + (valorcup*cup) + (valoreur*eur) + (valormlc*mlc)+(miles*1000)+ (qui*500)+(dos*200)+(cientos*100)+ (cin*50)+(ven*20)+(die*10)+(Sin*5)) * 0.03}
-      </h1>
-    </div>
+      </h1> */}
+    {/* </div> */}
     </>
   )
 }
