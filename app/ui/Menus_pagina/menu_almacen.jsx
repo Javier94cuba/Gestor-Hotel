@@ -1,7 +1,9 @@
 const tabs = [
-    { name: 'Inventario', href: 'http://localhost:3000/Almacen', current: true },
-    { name: 'Modificar inventario', href: '#', current: false },
-    { name: 'Ultimos ingresos de productos', href: '#', current: false },
+    { name: 'Almacen', href: 'http://localhost:3000/Almacen', current: true },
+    { name: 'Modificar contraseñas', href: '#', current: false },
+    { name: 'cierre semanal', href: '#', current: false },
+    { name: 'Generar cierre mensual', href: '#', current: false },
+    { name: 'Generar cierre anual', href: '#', current: false },
   ]
   
   function classNames(...classes) {

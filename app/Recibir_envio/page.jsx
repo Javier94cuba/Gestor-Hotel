@@ -7,13 +7,13 @@ import LatestEnvios from '../ui/envios/ultimos-envios';
 export default async function Recibir_envio() {
 
   // const latestInvoices = await fetchLatestInvoices();
-  const ultimosingresos = await fetchIngresar();
+  const data = await fetchIngresar();
   return (
     <>
     <div className='mb-3 text-2xl'>
       <Breadcumb name="Recibir envio"/>
     </div>
-    <LatestEnvios ultimosingresos={ultimosingresos}/>
+    <LatestEnvios data={data}/>
     {/* <LatestInvoices latestInvoices={latestInvoices}/> */}
     </>
   )
