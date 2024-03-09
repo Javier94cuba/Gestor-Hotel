@@ -40,7 +40,8 @@
     "app/Cierre_contable/page.jsx",
     "app/Guia/page.jsx",
     "app/Recibir_envio/page.jsx",
-    "app/ui/envios/ultimos-envios.jsx"
+    "app/ui/envios/ultimos-envios.jsx",
+    "app/Soporte/page.jsx"
   ],
   "exclude": [
     "node_modules"

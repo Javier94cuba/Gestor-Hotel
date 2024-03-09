@@ -36,12 +36,12 @@ const transactions = [
 function Almacen() {
   return (
     <>
-     <div className='mb-3 text-2xl'>
+     <div className='mb-6 text-2xl'>
       <Breadcumb name="Almacen"/>
     </div>
-    <div className='mb-8'>
+    {/* <div className='mb-8'>
       <Menu_almacen/>
-    </div>
+    </div> */}
 
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">

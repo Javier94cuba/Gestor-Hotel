@@ -13,6 +13,7 @@ import { usePathname } from 'next/navigation';
 
 const links = [
   { name: 'Venta', href: '/Venta', icon: ShoppingCartIcon },
+  { name: 'IPV', href: '/IPV', icon: LockClosedIcon },
   { name: 'Recibir envio', href: '/Recibir_envio', icon: ShoppingBagIcon },
   { name: 'Cierre contable', href: '/Cierre_contable', icon: LockClosedIcon },
   { name: 'Almacen', href: '/Almacen', icon: HomeIcon },

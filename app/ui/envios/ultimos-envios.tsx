@@ -2,8 +2,10 @@ import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { Ingresar } from '@/app/lib/definitions';
 
 const people = [
-  { name: 'Pepsi Cola', title: '200 unidades', email: 'Refrescos', role: 'Lia', id : 1 },
-  { name: 'Sprite, Harina, Huevos, Azucar', title: '50 , 10, 20, 10 unidades', email: 'Variado', role: 'Lia', id : 2 },
+  { name: 'Pepsi Cola', title: '200 unidades', email: 'Vima', role: 'Alejandro', id : 1 },
+  { name: 'Sprite', title: '50 unidades', email: 'Vima', role: 'Yulai', id : 2 },
+  { name: 'Pepsi Pomo', title: '150 unidades', email: 'Vima', role: 'Yulai', id : 3 },
+  { name: 'Sprite Pomo', title: '250 unidades', email: 'Vima', role: 'Cesar', id : 4 },
   // More people...
 ]
 
@@ -48,10 +50,10 @@ export default async function Ultimosingresos({
                       Cantidad
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
-                      Categoría
+                      Provedor
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
-                      Dependiente
+                   Almacenero
                     </th>
                     <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
                       <button className="sr-only">Edit</button>

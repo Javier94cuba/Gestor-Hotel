@@ -8,43 +8,60 @@ const locations = [
   {
     name: 'Desglose de billetes',
     people: [
-      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+      { name: 1000, title: 43, email: 43000, role: '' },
+      { name: 500, title: 23, email: 23456, role: '' },
+      { name: 200, title: 156, email: 123465, role: '' },
+      { name: 100, title: 19, email: 4123, role: '' },
+      { name: 50, title: 23, email: 12334, role: '' },
+      { name: 20, title: 48, email: 12345, role: '' },
+      { name: 10, title: 59, email: 123465, role: '' },
+      { name: 5, title: 111, email: 12356, role: '' },
+      { name: "Total de efectivo en caja", title: "1239", email: 1000000, role: '' },
     ],
   },
   {
     name: 'Transferencias',
     people: [
-      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+      { name: 'Transfermovil CUP', title: '2', email: '23045', role: '' },
+      { name: 'Transfermovil MLC', title: '3', email: '183.75', role: '' },
+      { name: 'USD', title: '1', email: '50', role: '' },
+      { name: 'EUR', title: '1', email: '25', role: '' },
+      { name: 'Total por transferencia', title: '', email: '123456', role: '' },
     ],
   },
   {
     name: 'Cierre de caja',
     people: [
-      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+      { name: '?', title: '?', email: '?', role: '?' },
     ],
   },
   {
     name: 'Gastos del dia',
     people: [
-      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+      { name: 'Hupman sin filtro', title: '50 unidades', email: '180  Mn', role: 'Lia' },
+      { name: 'Jabon nacar', title: '150 unidades', email: '180 Mn', role: 'Lia' },
+      { name: 'Total de gastos del dia', title: '', email: '360 Mn', role: 'Lia' },
     ],
   },
   {
     name: 'Venta total',
     people: [
-      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+      { name: 'Valor de la Venta Total', title: '', email: '256780', role: 'Lia' },
+    ],
+  },
+  {
+    name: 'Pago a trabajadores',
+    people: [
+      { name: 'Lia', title: '1.5%', email: '3561', role: '' },
+      { name: 'Cesar', title: '1.5%', email: '3561', role: '' },
+      { name: 'Yulai', title: '3.5%', email: '5600', role: '' },
+      { name: 'Alejandro', title: '4.5%', email: '8900', role: '' },
     ],
   },
   {
     name: 'Entregar a Richard vt*0.80 - gastos del dia',
     people: [
-      { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-      { name: 'Courtney Henry', title: 'Designer', email: 'courtney.henry@example.com', role: 'Admin' },
+      { name: 'Richard', title: 'Concepto de inversión', email: '20000', role: '' },
     ],
   },
   // More people...
@@ -109,16 +126,16 @@ function Cierre_contable() {
               <thead className="bg-white">
                 <tr>
                   <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">
-                    Name
+                    Proceso economico
                   </th>
                   <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    Title
+                    Valor
                   </th>
                   <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    Email
+                    Total
                   </th>
                   <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    Role
+                    Porciento
                   </th>
                   <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                     <span className="sr-only">Edit</span>
@@ -149,9 +166,9 @@ function Cierre_contable() {
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.email}</td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.role}</td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                          <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                          {/* <a href="#" className="text-indigo-600 hover:text-indigo-900">
                             Edit<span className="sr-only">, {person.name}</span>
-                          </a>
+                          </a> */}
                         </td>
                       </tr>
                     ))}

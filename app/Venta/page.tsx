@@ -17,16 +17,10 @@ function Venta() {
     {/* <div className=''>
     <Menu_venta/>
     </div> */}
-    <div className="px-4 sm:px-6 lg:px-8 mt-4">
+    <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
             <h1 className="text-base font-semibold leading-6 text-gray-900">Realizar venta</h1>
-            <p className="mt-2 text-sm text-gray-700">
-              Realiza la venta por cliente.<br/>
-              Abrir día: Empesar las ventas del dia <br/> 
-              Nueva venta: Genera una venta por cliente <br/>
-              Cerrar caja: genera el estado contable del día
-            </p>
           </div>
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none flex space-x-2">
             <button
