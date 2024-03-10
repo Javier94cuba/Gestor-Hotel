@@ -4,6 +4,81 @@ import Breadcumb from '../ui/componentstailwind/breadcumb'
 import { number } from 'zod'
 import { Fragment } from 'react'
 
+const projects = [
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '1000.00',
+    rate: '43',
+    price: '$43,000.00',
+  },
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '500.00',
+    rate: '10',
+    price: '$5,000.00',
+  },
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '200.00',
+    rate: '20',
+    price: '$4,000.00',
+  },
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '100.00',
+    rate: '20',
+    price: '$2,000.00',
+  },
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '50.00',
+    rate: '20',
+    price: '$1,000.00',
+  },
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '20.00',
+    rate: '20',
+    price: '$4,00.00',
+  },
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '10.00',
+    rate: '20',
+    price: '$200.00',
+  },
+  {
+    id: 1,
+    name: '',
+    description: '',
+    hours: '5.00',
+    rate: '20',
+    price: '$100.00',
+  },
+  // More projects...
+]
+
+const transferencias = [
+  {id: 1, Tipo:"Transferencia CUP", Cantidad: 10000},
+  {id: 2, Tipo:"Transferencia MLC", Cantidad: 20000},
+  {id: 3, Tipo:"USD", Cantidad: 30},
+  {id: 4, Tipo:"EUR", Cantidad: 40},
+]
+
 const locations = [
   {
     name: 'Desglose de billetes',
@@ -16,7 +91,7 @@ const locations = [
       { name: 20, title: 48, email: 12345, role: '' },
       { name: 10, title: 59, email: 123465, role: '' },
       { name: 5, title: 111, email: 12356, role: '' },
-      { name: "Total de efectivo en caja", title: "1239", email: 1000000, role: '' },
+      { name: "Total de efectivo en caja", total:"Total de efectivo en caja", title: "1239", email: 1000000, role: '' },
     ],
   },
   {
@@ -102,6 +177,742 @@ function Cierre_contable() {
       <Breadcumb name="Cierre de Caja"/>
     </div>
 
+    <div name="Desglose de billetes" className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Fecha</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            <time dateTime="2022-08-31">13/06/2024</time>.
+          </p>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Imprimir
+          </button>
+        </div>
+      </div>
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Desglose de billetes
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Numeración
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Cantidad de billetes
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Saldo total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects.map((project) => (
+              <tr key={project.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  <div className="font-medium text-gray-900">{project.name}</div>
+                  <div className="mt-1 truncate text-gray-500">{project.description}</div>
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.hours}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.rate}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">{project.price}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">$8,800.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1,760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">$43,000.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div name="Transferencias" className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Fecha</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            {/* <time dateTime="2022-08-31">13/06/2024</time>. */}
+          </p>
+        </div>
+        {/* <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Imprimir
+          </button>
+        </div> */}
+      </div>
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Transferencias
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Tipo
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Cantidad 
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Saldo 
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {transferencias.map((transferencia) => (
+              <tr key={transferencia.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  {/* <div className="font-medium text-gray-900">{transferencia.id}</div>
+                  <div className="mt-1 truncate text-gray-500">{transferencia.Tipo}</div> */}
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Tipo}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Cantidad}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">{transferencia.Cantidad} * valor</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">$8,800.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1,760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">$43,000.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div name="Cierre de caja" className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Fecha</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            {/* <time dateTime="2022-08-31">13/06/2024</time>. */}
+          </p>
+        </div>
+        {/* <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Imprimir
+          </button>
+        </div> */}
+      </div>
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Transferencias
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Tipo
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Cantidad 
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Saldo 
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {transferencias.map((transferencia) => (
+              <tr key={transferencia.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  {/* <div className="font-medium text-gray-900">{transferencia.id}</div>
+                  <div className="mt-1 truncate text-gray-500">{transferencia.Tipo}</div> */}
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Tipo}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Cantidad}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">{transferencia.Cantidad} * valor</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">$8,800.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1,760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">$43,000.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div name="Gastos del dia" className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Fecha</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            {/* <time dateTime="2022-08-31">13/06/2024</time>. */}
+          </p>
+        </div>
+        {/* <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Imprimir
+          </button>
+        </div> */}
+      </div>
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Transferencias
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Tipo
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Cantidad 
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Saldo 
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {transferencias.map((transferencia) => (
+              <tr key={transferencia.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  {/* <div className="font-medium text-gray-900">{transferencia.id}</div>
+                  <div className="mt-1 truncate text-gray-500">{transferencia.Tipo}</div> */}
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Tipo}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Cantidad}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">{transferencia.Cantidad} * valor</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">$8,800.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1,760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">$43,000.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div name="Venta Total" className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Fecha</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            {/* <time dateTime="2022-08-31">13/06/2024</time>. */}
+          </p>
+        </div>
+        {/* <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Imprimir
+          </button>
+        </div> */}
+      </div>
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Transferencias
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Tipo
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Cantidad 
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Saldo 
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {transferencias.map((transferencia) => (
+              <tr key={transferencia.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  {/* <div className="font-medium text-gray-900">{transferencia.id}</div>
+                  <div className="mt-1 truncate text-gray-500">{transferencia.Tipo}</div> */}
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Tipo}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Cantidad}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">{transferencia.Cantidad} * valor</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">$8,800.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1,760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">$43,000.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div name="Pago a trabajadores" className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Fecha</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            {/* <time dateTime="2022-08-31">13/06/2024</time>. */}
+          </p>
+        </div>
+        {/* <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Imprimir
+          </button>
+        </div> */}
+      </div>
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Transferencias
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Tipo
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Cantidad 
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Saldo 
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {transferencias.map((transferencia) => (
+              <tr key={transferencia.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  {/* <div className="font-medium text-gray-900">{transferencia.id}</div>
+                  <div className="mt-1 truncate text-gray-500">{transferencia.Tipo}</div> */}
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Tipo}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Cantidad}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">{transferencia.Cantidad} * valor</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">$8,800.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1,760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">$43,000.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div name="Costo" className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Fecha</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            {/* <time dateTime="2022-08-31">13/06/2024</time>. */}
+          </p>
+        </div>
+        {/* <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Imprimir
+          </button>
+        </div> */}
+      </div>
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Transferencias
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Tipo
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Cantidad 
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Saldo 
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {transferencias.map((transferencia) => (
+              <tr key={transferencia.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  {/* <div className="font-medium text-gray-900">{transferencia.id}</div>
+                  <div className="mt-1 truncate text-gray-500">{transferencia.Tipo}</div> */}
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Tipo}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{transferencia.Cantidad}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">{transferencia.Cantidad} * valor</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">$8,800.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1,760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">$43,000.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+  
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">

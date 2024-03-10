@@ -3,8 +3,8 @@ import Breadcrumbs from '../ui/componentstailwind/breadcumb'
 import Menu_venta from '../ui/Menus_pagina/menu_venta'
 
 const people = [
-  { name: 'Pepsi Cola, Harina', title: '3 , 1 ', email: "1560", role: 'Lia', id : 1, metodo:"efectivo" },
-  { name: 'Sprite', title: '2', email: "350", role: 'Lia', id : 2, metodo:"transfermovil" },
+  { name: 'Pepsi Cola, Harina', title: '3 , 1 ', email: "1560", role: 'Lia', id : 1, metodo:"efectivo", fecha:"12/05/2024" },
+  { name: 'Sprite', title: '2', email: "350", role: 'Lia', id : 2, metodo:"transfermovil" , fecha:"12/05/2024" },
   // More people...
 ]
 
@@ -28,12 +28,6 @@ function Venta() {
               className="block rounded-md mt-7 bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Nueva Venta
-            </button>
-            <button
-              type="button"
-              className="block rounded-md mt-7 bg-green-400 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Abrir día
             </button>
             <button
               type="button"
@@ -67,6 +61,9 @@ function Venta() {
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
                       Dependiente
                     </th>
+                    <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
+                      Fecha
+                    </th>
                     <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
                       <button className="sr-only">Edit</button>
                     </th>
@@ -85,6 +82,7 @@ function Venta() {
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ person.email }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ person.metodo }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ person.role }</td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ person.fecha }</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 flex space-x-2 ">
                         <button
                           type="button"

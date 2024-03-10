@@ -1,13 +1,17 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { Ingresar } from '@/app/lib/definitions';
+import Link from 'next/link';
 
 const people = [
-  { name: 'Pepsi Cola', title: '200 unidades', email: 'Vima', role: 'Alejandro', id : 1 },
-  { name: 'Sprite', title: '50 unidades', email: 'Vima', role: 'Yulai', id : 2 },
-  { name: 'Pepsi Pomo', title: '150 unidades', email: 'Vima', role: 'Yulai', id : 3 },
-  { name: 'Sprite Pomo', title: '250 unidades', email: 'Vima', role: 'Cesar', id : 4 },
+  { name: 'Pepsi Cola', title: '200 unidades', email: 'Vima', role: 'Alejandro', id : 4,fecha:"12/05/2024" },
+  { name: 'Sprite', title: '50 unidades', email: 'Vima', role: 'Yulai', id : 3,fecha:"12/05/2024" },
+  { name: 'Pepsi Pomo', title: '150 unidades', email: 'Vima', role: 'Yulai', id : 2,fecha:"12/05/2024" },
+  { name: 'Sprite Pomo', title: '250 unidades', email: 'Vima', role: 'Cesar', id : 1,fecha:"12/05/2024" },
   // More people...
 ]
+
+const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
+
 
 export default async function Ultimosingresos({
   data,
@@ -26,12 +30,13 @@ export default async function Ultimosingresos({
             </p>
           </div>
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-            <button
-              type="button"
-              className="block rounded-md mt-7 bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            <Link
+            key={link.name}
+            href={link.href}
+            className="block rounded-md mt-7 bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Añadir envío
-            </button>
+            <p className="hidden md:block">{link.name}</p>
+            </Link>
           </div>
         </div>
         <div className="mt-8 flow-root">
@@ -49,11 +54,14 @@ export default async function Ultimosingresos({
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
                       Cantidad
                     </th>
-                    <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
+                    <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900 text-center">
                       Provedor
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
                    Almacenero
+                    </th>
+                    <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
+                   Fecha
                     </th>
                     <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
                       <button className="sr-only">Edit</button>
@@ -72,6 +80,7 @@ export default async function Ultimosingresos({
                       <td className="text-center px-3 py-4 text-sm text-gray-500">{ person.title }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ person.email }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ person.role }</td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ person.fecha }</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 flex space-x-2 ">
                         <button
                           type="button"
