@@ -56,7 +56,7 @@ function Venta() {
                       Precio total
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
-                    Metodo de pago
+                    Método de pago
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
                       Dependiente
