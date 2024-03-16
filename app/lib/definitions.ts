@@ -6,6 +6,10 @@ export type Ingresar = {
   id: string;
   name: string;
   amount: number;
+  proveedor:string;
+  almacenero:string;
+  fecha:string;
+  numero:number;
 }
 
 export type User = {

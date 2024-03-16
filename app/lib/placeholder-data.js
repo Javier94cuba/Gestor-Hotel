@@ -12,18 +12,30 @@ const users = [
 const ingresar = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
+    numero:'1',
+    fecha:'12/05/2024',
     name: 'Pepsi lata',
     amount: 100,
+    proveedor:'Vima',
+    almacenero: 'Alejandro',
   },
   {
-    id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    name: 'Sprite',
-    amount: 100,
+    id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
+    numero:'2',
+    fecha:'12/05/2024',
+    name: 'Carne de cerdo',
+    amount: 25,
+    proveedor:'Vima',
+    almacenero: 'Alejandro',
   },
   {
-    id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    name: 'Cigarro hupman',
-    amount: 100,
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    numero:'3',
+    fecha:'12/05/2024',
+    name: 'Azucar saco',
+    amount: 30,
+    proveedor:'Carnes SA',
+    almacenero: 'Alejandro',
   },
 ];
 

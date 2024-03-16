@@ -1,6 +1,7 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { Ingresar } from '@/app/lib/definitions';
 import Link from 'next/link';
+import Search from '../search.jsx';
 
 const people = [
   { name: 'Pepsi Cola', title: '200 unidades', email: 'Vima', role: 'Alejandro', id : 4,fecha:"12/05/2024" },
@@ -27,9 +28,12 @@ export default async function Ultimosingresos({
             <h1 className="text-base font-semibold leading-6 text-gray-900">Ingreso de productos MercaNeptuno</h1>
             <p className="mt-2 text-sm text-gray-700">
               Lista de todos los ingresos a la tienda Merca neptuno, inlcuye nombre del producto, cantidad.
-            </p>
+            </p> 
           </div>
-          <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <div className="flex mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <div className='mt-7 mr-4'>
+            <Search placeholder={"Envios"}/>
+            </div>
             <Link
             key={link.name}
             href={link.href}
