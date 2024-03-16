@@ -4,7 +4,7 @@ const {
   customers,
   revenue,
   users,
-  ingresar,
+  ingresos,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -13,34 +13,38 @@ async function seedIngresar(client) {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Create the "users" table if it doesn't exist
     const createTable = await client.sql`
-      CREATE TABLE IF NOT EXISTS ingresar (
+      CREATE TABLE IF NOT EXISTS ingresos (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
-        amount INT NOT NULL
+        amount INT NOT NULL,
+        proveedor VARCHAR(255) NOT NULL,
+        almacenero VARCHAR(255) NOT NULL,
+        fecha VARCHAR(255) NOT NULL,
+        numero INT NOT NULL
       );
     `;
 
-    console.log(`Created "ingresar" table`);
+    console.log(`Created "ingresos" table`);
 
     // Insert data into the "users" table
     const insertedIngresar = await Promise.all(
-      ingresar.map( 
+      ingresos.map( 
         (ingreso) => client.sql`
-        INSERT INTO ingresar (id, name, amount)
-        VALUES (${ingreso.id}, ${ingreso.name}, ${ingreso.amount})
+        INSERT INTO ingresos (id, name, amount,proveedor,almacenero,fecha,numero)
+        VALUES (${ingreso.id}, ${ingreso.name}, ${ingreso.amount}, ${ingreso.proveedor} , ${ingreso.almacenero}, ${ingreso.fecha}, ${ingreso.numero})
         ON CONFLICT (id) DO NOTHING;
          `,
          ),
         );
 
-    console.log(`Seeded ${insertedIngresar.length} ingresar`);
+    console.log(`Seeded ${insertedIngresar.length} ingresos`);
 
     return {
       createTable,
-      ingresar: insertedIngresar,
+      ingresos: insertedIngresar,
     };
   } catch (error) {
-    console.error('Error seeding ingresar:', error);
+    console.error('Error seeding ingresos:', error);
     throw error;
   }
 }

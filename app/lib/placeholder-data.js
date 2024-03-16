@@ -17,7 +17,7 @@ const ingresos = [
     name: 'Pepsi lata',
     amount: 100,
     proveedor:'Vima',
-    almacenero: 'Alejandro',
+    almacenero: 'Yulai',
   },
   {
     id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
