@@ -9,7 +9,7 @@ const users = [
   },
 ];
 
-const ingresar = [
+const ingresos = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
     numero:'1',
@@ -215,5 +215,5 @@ module.exports = {
   customers,
   invoices,
   revenue,
-  ingresar,
+  ingresos,
 };
