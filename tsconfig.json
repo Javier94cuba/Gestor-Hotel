@@ -42,7 +42,8 @@
     "app/Recibir_envio/page.jsx",
     "app/ui/envios/ultimos-envios.jsx",
     "app/Soporte/page.jsx",
-    "app/ui/search.jsx"
+    "app/ui/search.jsx",
+    "app/lib/actions.js"
   ],
   "exclude": [
     "node_modules"

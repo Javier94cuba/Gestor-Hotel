@@ -13,7 +13,11 @@ import { formatCurrency } from './utils';
 
 export async function fetchIngresar() {
   try {
-      const data = await sql<Ingresar>`SELECT * FROM ingresos`;
+      const data = await sql<Ingresar>`
+      SELECT * 
+      FROM ingresos
+      ORDER BY ingresos.fecha 
+      ASC`;
     return data.rows;
   } catch (err) {
     console.error('Database Error:', err);

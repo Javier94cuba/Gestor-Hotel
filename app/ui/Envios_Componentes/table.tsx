@@ -1,3 +1,8 @@
+import Image from 'next/image';
+import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
+import InvoiceStatus from '@/app/ui/invoices/status';
+import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
+import { fetchFilteredInvoices } from '@/app/lib/data';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { Ingresar } from '@/app/lib/definitions';
 import Link from 'next/link';
@@ -5,14 +10,29 @@ import Search from '../search.jsx';
 
 const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
 
-export default async function Ultimosingresos({
-  data,
-}:{
-  data: Ingresar[];
-})
-{
+export default async function InvoicesTable(
+  {
+  query,
+  currentPage,
+  } 
+  : 
+  {
+  query: string;
+  currentPage: number;
+  }
+  ,
+  {
+    data,
+  }
+  :
+  {
+    data: Ingresar[];
+  }
+  ) 
+  {
+  const invoices = await fetchFilteredInvoices(query, currentPage);
+
   return (
-    <>
     <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
@@ -41,6 +61,9 @@ export default async function Ultimosingresos({
                 <thead>
                   <tr>
                     <th scope="col" className="py-3.5 pl-4 pr-3  text-sm font-semibold text-gray-900 sm:pl-0 text-center">
+                      Id de base de datos (Ojo)
+                    </th>
+                    <th scope="col" className="py-3.5 pl-4 pr-3  text-sm font-semibold text-gray-900 sm:pl-0 text-center">
                       Nombre del producto
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
@@ -63,6 +86,9 @@ export default async function Ultimosingresos({
                 <tbody className="divide-y divide-gray-200">
                   { data.map((value) => (
                     <tr key={ value.id }>
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 text-center">
+                        { value.id}
+                      </td>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 text-center">
                         { value.name }
                       </td>
@@ -92,6 +118,5 @@ export default async function Ultimosingresos({
           </div>
         </div>
       </div>
-    </>
   );
 }
