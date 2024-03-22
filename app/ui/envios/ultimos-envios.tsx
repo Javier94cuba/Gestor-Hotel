@@ -2,6 +2,7 @@ import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { Ingresar } from '@/app/lib/definitions';
 import Link from 'next/link';
 import Search from '../search.jsx';
+import Btn_editar from '@/app/ui/envios/btn_editar'
 
 const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
 
@@ -71,15 +72,16 @@ export default async function Ultimosingresos({
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.almacenero }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.fecha }</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 flex space-x-2 ">
-                        <button
+                        {/* <button
                           type="button"
-                          className="block rounded-md bg-orange-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                          className="block rounded-md bg-orange-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                           Editar
-                        </button>
+                        </button> */}
+                        <Btn_editar id={value.id}/>
                         <button
                           type="button"
-                          className="block rounded-md bg-red-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                          className="block rounded-md bg-red-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                           Eliminar
                         </button>

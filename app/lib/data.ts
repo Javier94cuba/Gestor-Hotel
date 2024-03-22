@@ -25,6 +25,30 @@ export async function fetchIngresar() {
   }
 }
 
+export async function fetchIngresobyId(id: string) {
+  try {
+    const data = await sql<Ingresar>`
+      SELECT
+        ingresos.id,
+        ingresos.almacenero,
+        ingresos.name,
+        ingresos.amount,
+        ingresos.proveedor,
+        ingresos.fecha
+      FROM ingresos
+      WHERE ingresos.id = ${id};
+    `;
+
+    const ingreso = data.rows.map((ingreso) => ({
+      ...ingreso,
+    }));
+
+    return ingreso[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+  }
+}
+
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).

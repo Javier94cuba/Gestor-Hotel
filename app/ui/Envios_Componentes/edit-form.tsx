@@ -1,6 +1,6 @@
 'use client';
 
-import { CustomerField, InvoiceForm } from '@/app/lib/definitions';
+import { CustomerField, InvoiceForm, Ingresar } from '@/app/lib/definitions';
 import {
   CheckIcon,
   ClockIcon,
@@ -9,46 +9,44 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
+import { updateEnvio } from '@/app/lib/actions';
 
-export default function EditInvoiceForm({
-  invoice,
-  customers,
+export default function EditIngresoForm({
+  ingreso,
 }: {
-  invoice: InvoiceForm;
-  customers: CustomerField[];
+  ingreso: Ingresar;
 }) {
+
+  const updateIngresoId = updateEnvio.bind(null, ingreso.id);
+
   return (
-    <form>
+    <form action={updateIngresoId}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
-        {/* Customer Name */}
+
+        {/* INombre del producto*/}
         <div className="mb-4">
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium">
-            Choose customer
+          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+           Editar :  Nombre del producto
           </label>
-          <div className="relative">
-            <select
-              id="customer"
-              name="customerId"
-              className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              defaultValue={invoice.customer_id}
-            >
-              <option value="" disabled>
-                Select a customer
-              </option>
-              {customers.map((customer) => (
-                <option key={customer.id} value={customer.id}>
-                  {customer.name}
-                </option>
-              ))}
-            </select>
-            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+          <div className="relative mt-2 rounded-md">
+            <div className="relative">
+              <input
+                id="name"
+                name="name"
+                type="string"
+                placeholder="Nombre del producto"
+                defaultValue={ingreso.name}
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              />
+              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+            </div>
           </div>
         </div>
 
-        {/* Invoice Amount */}
-        <div className="mb-4">
+         {/* Cantidad de productos */}
+         <div className="mb-4">
           <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-            Choose an amount
+          Editar : Cantidad de productos
           </label>
           <div className="relative mt-2 rounded-md">
             <div className="relative">
@@ -56,7 +54,7 @@ export default function EditInvoiceForm({
                 id="amount"
                 name="amount"
                 type="number"
-                defaultValue={invoice.amount}
+                defaultValue={ingreso.amount}
                 placeholder="Enter USD amount"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               />
@@ -65,57 +63,78 @@ export default function EditInvoiceForm({
           </div>
         </div>
 
-        {/* Invoice Status */}
-        <fieldset>
-          <legend className="mb-2 block text-sm font-medium">
-            Set the invoice status
-          </legend>
-          <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
-            <div className="flex gap-4">
-              <div className="flex items-center">
-                <input
-                  id="pending"
-                  name="status"
-                  type="radio"
-                  value="pending"
-                  defaultChecked={invoice.status === 'pending'}
-                  className="h-4 w-4 border-gray-300 bg-gray-100 text-gray-600 focus:ring-2 focus:ring-gray-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-gray-600"
-                />
-                <label
-                  htmlFor="pending"
-                  className="ml-2 flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-300"
-                >
-                  Pending <ClockIcon className="h-4 w-4" />
-                </label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  id="paid"
-                  name="status"
-                  type="radio"
-                  value="paid"
-                  defaultChecked={invoice.status === 'paid'}
-                  className="h-4 w-4 border-gray-300 bg-gray-100 text-gray-600 focus:ring-2 focus:ring-gray-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-gray-600"
-                />
-                <label
-                  htmlFor="paid"
-                  className="ml-2 flex items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white dark:text-gray-300"
-                >
-                  Paid <CheckIcon className="h-4 w-4" />
-                </label>
-              </div>
+        {/* Proveedor */}
+        <div className="mb-4">
+          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+          Editar : Proveedor del producto
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <div className="relative">
+              <input
+                id="proveedor"
+                name="proveedor"
+                type="string"
+                placeholder="Proveedor del producto que se adiciona a la tienda"
+                defaultValue={ingreso.proveedor}
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              />
+              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
-        </fieldset>
+        </div>
+        
+        {/* Almacenero edit */}
+        <div className="mb-4">
+          <label htmlFor="almacenero" className="mb-2 block text-sm font-medium">
+          Editar : Almacenero
+          </label>
+          <div className="mb-4">
+          <div className="relative mt-2 rounded-md">
+            <div className="relative">
+              <input
+                id="almacenero"
+                name="almacenero"
+                type="string"
+                placeholder="Editar Almacenero"
+                defaultValue={ingreso.almacenero}
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              />
+              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+            </div>
+          </div>
+        </div>
+        </div>
+
+        {/* Invoice Amount */}
+        <div className="mb-4">
+          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+          Editar : Fecha
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <div className="relative">
+              <input
+                id="fecha"
+                name="fecha"
+                type="string"
+                placeholder="Fecha de entrada ej: 12/06/2024"
+                defaultValue={ingreso.fecha}
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              />
+              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+            </div>
+          </div>
+        </div>
+
+        {/* Invoice Status */}
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
-          href="/dashboard/invoices"
+          href="/Recibir_envio"
           className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
         >
-          Cancel
+          Cancelar
         </Link>
-        <Button type="submit">Edit Invoice</Button>
+        <Button type="submit">Editar Ingreso</Button>
       </div>
     </form>
   );
