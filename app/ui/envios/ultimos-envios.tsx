@@ -3,18 +3,30 @@ import { Ingresar } from '@/app/lib/definitions';
 import Link from 'next/link';
 import Search from '../search.jsx';
 import Btn_editar from '@/app/ui/envios/btn_editar'
+import Btn_eliminar from '@/app/ui/envios/btn_eliminar'
+import Table from '@/app/ui/Envios_Componentes/table'
+import { useSearchParams } from 'next/navigation.js';
 
 const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
 
 export default async function Ultimosingresos({
-  data,
+  // data,
+  searhParams
 }:{
-  data: Ingresar[];
-})
-{
+  searhParams?:{
+    query?:string
+  }
+  // data: Ingresar[];
+}){
+  
+const query = searhParams?.query || ''
+
+console.log(query)
+console.log(searhParams)
+
   return (
     <>
-    <div className="px-4 sm:px-6 lg:px-8">
+    {/* <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
             <h1 className="text-base font-semibold leading-6 text-gray-900">Ingreso de productos MercaNeptuno</h1>
@@ -24,7 +36,7 @@ export default async function Ultimosingresos({
           </div>
           <div className="flex mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <div className='mt-7 mr-4'>
-            <Search placeholder={"Envios"}/>
+            <Search placeholder={" Buscar Ingreso"}/>
             </div>
             <Link
             key={link.name}
@@ -72,19 +84,8 @@ export default async function Ultimosingresos({
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.almacenero }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.fecha }</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 flex space-x-2 ">
-                        {/* <button
-                          type="button"
-                          className="block rounded-md bg-orange-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                          Editar
-                        </button> */}
                         <Btn_editar id={value.id}/>
-                        <button
-                          type="button"
-                          className="block rounded-md bg-red-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                          Eliminar
-                        </button>
+                        <Btn_eliminar id={value.id}/>
                       </td>
                     </tr>
                   )) }
@@ -93,7 +94,8 @@ export default async function Ultimosingresos({
             </div>
           </div>
         </div>
-      </div>
+    </div> */}
+      <Table query={query}/>
     </>
   );
 }

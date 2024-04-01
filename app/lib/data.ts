@@ -25,7 +25,7 @@ export async function fetchIngresar() {
   }
 }
 
-export async function fetchIngresobyId(id: string) {
+export async function fetchIngresobyId( id: string ) {
   try {
     const data = await sql<Ingresar>`
       SELECT
@@ -48,6 +48,7 @@ export async function fetchIngresobyId(id: string) {
     console.error('Database Error:', error);
   }
 }
+
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
@@ -125,6 +126,38 @@ export async function fetchCardData() {
     throw new Error('Failed to card data.');
   }
 }
+
+const ITEMS_PER_PAGES = 6;
+export async function FetchFilteredIngresos(
+  query: string,
+) {
+
+  try {
+    const ingresos = await sql<Ingresar>`
+      SELECT
+        ingresos.id,
+        ingresos.name,
+        ingresos.amount,
+        ingresos.proveedor,
+        ingresos.almacenero,
+        ingresos.fecha,
+        ingresos.numero
+      FROM ingresos
+        WHERE
+        ingresos.name ILIKE ${`%${query}%`} OR
+        ingresos.proveedor ILIKE ${`%${query}%`} OR
+        ingresos.fecha ILIKE ${`%${query}%`} OR
+        ingresos.almacenero ILIKE ${`%${query}%`}
+      ORDER BY ingresos.fecha DESC
+    `;
+
+    return ingresos.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch ingresosfil.');
+  }
+}
+
 
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredInvoices(

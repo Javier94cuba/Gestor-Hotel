@@ -7,6 +7,7 @@ export default async function Recibir_envio() {
 
 
   const data = await fetchIngresar();
+  
   return (
     <>
     <div className='mb-3 text-2xl'>

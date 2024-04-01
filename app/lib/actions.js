@@ -78,3 +78,9 @@ export async function updateEnvio( id , formdata){
    revalidatePath('/Recibir_envio')
    redirect('/Recibir_envio')
 }
+
+export async function deleteIngreso(id) {
+    await sql`DELETE FROM ingresos WHERE id = ${id}`;
+    revalidatePath('/Recibir_envio')
+    redirect('/Recibir_envio')
+  }
