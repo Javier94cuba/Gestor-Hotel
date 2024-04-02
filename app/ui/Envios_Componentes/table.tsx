@@ -1,23 +1,18 @@
-import Image from 'next/image';
-import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
-import InvoiceStatus from '@/app/ui/invoices/status';
-import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { FetchFilteredIngresos } from '@/app/lib/data';
-import { ArrowPathIcon } from '@heroicons/react/24/outline';
-import { Ingresar } from '@/app/lib/definitions';
+import Btn_editar from '@/app/ui/envios/btn_editar'
+import Btn_eliminar from '@/app/ui/envios/btn_eliminar'
 import Link from 'next/link';
 import Search from '../search.jsx';
 
 const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
 
-export default async function InvoicesTable({
+export default async function IngresosTable({
   query,
   } :  {
   query: string;
   }) 
   {
   const ingresos = await FetchFilteredIngresos(query);
-  console.log(query)
   
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -47,9 +42,9 @@ export default async function InvoicesTable({
               <table className="min-w-full divide-y divide-gray-300">
                 <thead>
                   <tr>
-                    <th scope="col" className="py-3.5 pl-4 pr-3  text-sm font-semibold text-gray-900 sm:pl-0 text-center">
+                    {/* <th scope="col" className="py-3.5 pl-4 pr-3  text-sm font-semibold text-gray-900 sm:pl-0 text-center">
                       Id de base de datos (Ojo)
-                    </th>
+                    </th> */}
                     <th scope="col" className="py-3.5 pl-4 pr-3  text-sm font-semibold text-gray-900 sm:pl-0 text-center">
                       Nombre del producto
                     </th>
@@ -73,9 +68,9 @@ export default async function InvoicesTable({
                 <tbody className="divide-y divide-gray-200">
                   { ingresos.map((value) => (
                     <tr key={ value.id }>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 text-center">
-                        { value.id}
-                      </td>
+                      {/* <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 text-center">
+                        {value.id}
+                      </td> */}
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 text-center">
                         { value.name }
                       </td>
@@ -84,18 +79,8 @@ export default async function InvoicesTable({
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.almacenero }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.fecha }</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 flex space-x-2 ">
-                        <button
-                          type="button"
-                          className="block rounded-md bg-orange-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                          Editar
-                        </button>
-                        <button
-                          type="button"
-                          className="block rounded-md bg-red-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                          Eliminar
-                        </button>
+                        <Btn_editar id={value.id}/> 
+                        <Btn_eliminar  id={value.id}/>
                       </td>
                     </tr>
                   )) }

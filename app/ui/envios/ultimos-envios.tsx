@@ -2,28 +2,19 @@ import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { Ingresar } from '@/app/lib/definitions';
 import Link from 'next/link';
 import Search from '../search.jsx';
-import Btn_editar from '@/app/ui/envios/btn_editar'
-import Btn_eliminar from '@/app/ui/envios/btn_eliminar'
 import Table from '@/app/ui/Envios_Componentes/table'
-import { useSearchParams } from 'next/navigation.js';
+import  {useSearchParams}  from 'next/navigation.js';
 
-const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
+// const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
 
-export default async function Ultimosingresos({
-  // data,
-  searhParams
-}:{
-  searhParams?:{
-    query?:string
-  }
-  // data: Ingresar[];
-}){
-  
-const query = searhParams?.query || ''
-
-console.log(query)
-console.log(searhParams)
-
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+  };
+}) {
+  const query = searchParams?.query || '';
   return (
     <>
     {/* <div className="px-4 sm:px-6 lg:px-8">

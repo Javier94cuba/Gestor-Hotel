@@ -127,7 +127,6 @@ export async function fetchCardData() {
   }
 }
 
-const ITEMS_PER_PAGES = 6;
 export async function FetchFilteredIngresos(
   query: string,
 ) {
