@@ -44,7 +44,8 @@
     "app/Soporte/page.jsx",
     "app/ui/search.jsx",
     "app/lib/actions.js",
-    "app/ui/envios/btn_editar.jsx"
+    "app/ui/envios/btn_editar.jsx",
+    "app/ui/envios/btn_descargar.jsx"
   ],
   "exclude": [
     "node_modules"

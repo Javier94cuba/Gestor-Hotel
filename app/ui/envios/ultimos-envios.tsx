@@ -5,8 +5,6 @@ import Search from '../search.jsx';
 import Table from '@/app/ui/Envios_Componentes/table'
 import  {useSearchParams}  from 'next/navigation.js';
 
-// const link = {name:"Añadir envio", href : "/Recibir_envio/Add_envio"}
-
 export default async function Page({
   searchParams,
 }: {
