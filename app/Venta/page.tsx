@@ -1,6 +1,6 @@
 import React from 'react'
 import Breadcrumbs from '../ui/componentstailwind/breadcumb'
-import Menu_venta from '../ui/Menus_pagina/menu_venta'
+// import Menu_venta from '../ui/Menus_pagina/menu_venta'
 
 const people = [
   { name: 'Pepsi Cola, Harina', title: '3 , 1 ', email: "1560", role: 'Lia', id : 1, metodo:"efectivo", fecha:"12/05/2024" },
@@ -14,9 +14,6 @@ function Venta() {
     <div className='text-2xl'>
       <Breadcrumbs name="Venta de productos"/>
     </div>
-    {/* <div className=''>
-    <Menu_venta/>
-    </div> */}
     <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
