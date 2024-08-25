@@ -153,7 +153,7 @@ export async function FetchFilteredIngresos(
     return ingresos.rows;
   } catch (error) {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch ingresosfil.');
+    throw new Error('Error mas estupido.');
   }
 }
 
