@@ -12,7 +12,7 @@ export default function Page() {
             , el sitio se encuentra en desarrollo whatsapp de actualizaciones +53 58386901.
           </p>
           <Link
-            href="https://gestor-hotel-1uc207z1j-javier94cuba.vercel.app/Venta"
+            href="https://gestor-hotel-1uc207z1j-javier94cuba.vercel.app"
             className="flex items-center gap-3 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
             <span>Gestión de la tienda </span> <PresentationChartLineIcon className="w-5 md:w-6" />
