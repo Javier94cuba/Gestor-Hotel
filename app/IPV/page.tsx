@@ -18,7 +18,7 @@ function IPV() {
         <div className="sm:flex-auto">
           <h1 className="text-base font-semibold leading-6 text-gray-900">IPV</h1>
           <p className="mt-2 text-sm text-gray-700">
-           Lista del IPV del día
+           Lista del IPV del díaS
           </p>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
