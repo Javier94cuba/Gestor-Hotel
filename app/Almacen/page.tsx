@@ -101,7 +101,7 @@ function Almacen() {
                     scope="col"
                     className="whitespace-nowrap px-2 py-3.5 text-center text-sm font-semibold text-gray-900"
                   >
-                    Proveedor
+                    Proveedorr
                   </th>
                   
                   <th
