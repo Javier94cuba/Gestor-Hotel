@@ -7,7 +7,7 @@ export default function AcmeLogo() {
   return (
     <div
       className={`${lusitana.className} flex items-center justify-center text-white`}>
-      <p className="text-base">Mercado Neptuno</p>
+      <p className="text-center text-xl mb-1">Mercado Neptuno</p>
     </div>
   );
 }
