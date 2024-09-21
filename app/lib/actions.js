@@ -17,22 +17,21 @@ const CreateEnvio = z.object({
     p_venta:z.number(),
     adicionado:z.string(),
     c_total:z.number(),
-    producto:z.string(),
-
+    producto:z.string()
 })
 
 const CreateEnvioForm = CreateEnvio.omit({
 numero:true,
 id:true,
 ipv:true,
-    merma:true,
-    p_costo:true,
-    p_venta:true,
-    producto:true,
+merma:true,
+p_costo:true,
+p_venta:true,
+producto:true,
 })
 
 export async function crearEnvio(formdata){
-    const {almacenero,name,amount,proveedor,fecha} = CreateEnvioForm.parse({
+    const {almacenero,name,amount,proveedor,fecha,adicionado,c_total} = CreateEnvioForm.parse({
         almacenero: formdata.get('almacenero'),
         name: formdata.get('name'),
         amount: formdata.get('amount'),
