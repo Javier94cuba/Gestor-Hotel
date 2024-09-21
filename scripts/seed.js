@@ -13,7 +13,7 @@ async function seedIngresar(client) {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Create the "users" table if it doesn't exist
     const createTable = await client.sql`
-      CREATE TABLE IF EXISTS ingresos (
+      CREATE TABLE IF NOT EXISTS ingresos2 (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         amount INT NOT NULL,
@@ -21,7 +21,7 @@ async function seedIngresar(client) {
         almacenero VARCHAR(255) NOT NULL,
         fecha VARCHAR(255) NOT NULL,
         numero INT NOT NULL,
-        ctotal int NOT NULL,
+        ctotal INT NOT NULL,
         adicionado VARCHAR(255) NOT NUll
       );
     `;
