@@ -22,7 +22,7 @@ async function seedIngresar(client) {
         fecha VARCHAR(255) NOT NULL,
         numero INT NOT NULL,
         ctotal int NOT NULL,
-        adicionado VARCHAR(255)
+        adicionado VARCHAR(255) NOT NUll
       );
     `;
 
