@@ -18,6 +18,8 @@ const ingresos = [
     amount: 100,
     proveedor:'Vima',
     almacenero: 'Yulai',
+    ctotal:100,
+    adicionado:'no'
   },
   {
     id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
@@ -27,6 +29,8 @@ const ingresos = [
     amount: 25,
     proveedor:'Vima',
     almacenero: 'Alejandro',
+    ctotal:100,
+    adicionado:'no'
   },
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
@@ -36,6 +40,8 @@ const ingresos = [
     amount: 30,
     proveedor:'Carnes SA',
     almacenero: 'Alejandro',
+    ctotal:100,
+    adicionado:'no'
   },
 ];
 
