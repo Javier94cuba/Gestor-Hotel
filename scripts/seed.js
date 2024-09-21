@@ -4,7 +4,7 @@ const {
   customers,
   revenue,
   users,
-  ingresos,
+  ingresos2,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -30,9 +30,9 @@ async function seedIngresar(client) {
 
     // Insert data into the "users" table
     const insertedIngresar = await Promise.all(
-      ingresos.map( 
+      ingresos2.map( 
         (ingreso) => client.sql`
-        INSERT INTO ingresos (id, name, amount,proveedor,almacenero,fecha,numero,ctotal, adicionado)
+        INSERT INTO ingresos2 (id, name, amount,proveedor,almacenero,fecha,numero,ctotal, adicionado)
         VALUES (${ingreso.id}, ${ingreso.name}, ${ingreso.amount}, ${ingreso.proveedor} , ${ingreso.almacenero}, ${ingreso.fecha}, ${ingreso.numero}, ${ingreso.ctotal}, ${ingreso.adicionado})
         ON CONFLICT (id) DO NOTHING;
          `,
@@ -43,10 +43,10 @@ async function seedIngresar(client) {
 
     return {
       createTable,
-      ingresos: insertedIngresar,
+      ingresos2: insertedIngresar,
     };
   } catch (error) {
-    console.error('Error seeding ingresos:', error);
+    console.error('Error seeding ingresos2:', error);
     throw error;
   }
 }
