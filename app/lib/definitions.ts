@@ -9,7 +9,16 @@ export type Ingresar = {
   proveedor:string;
   almacenero:string;
   fecha:string;
+  p_costo:number;
+  p_venta:number;
+  ipv:number;
+  merma:number;
   numero:number;
+  cantidad_total:number;
+  adicionado:string;
+  producto:string;
+  c_total:number;
+  //Nombre, Cantidad, Proveedor, Almacenero, Fecha, precio de costo, precio de venta, IPV, Merma,
 }
 
 export type User = {

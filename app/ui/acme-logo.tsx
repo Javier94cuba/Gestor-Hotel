@@ -5,9 +5,8 @@ import Image from 'next/image'
 
 export default function AcmeLogo() {
   return (
-    <div
-      className={`${lusitana.className} flex items-center justify-center text-white`}>
-      <p className="text-center text-xl mb-1">Mercado Neptuno</p>
+    <div className={`${lusitana.className}items-center justify-center text-white mt-2`}>
+      <p className="text-center text-lg mb-1">Software 1.0</p>
     </div>
   );
 }

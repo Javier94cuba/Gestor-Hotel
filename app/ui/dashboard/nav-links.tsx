@@ -17,9 +17,11 @@ const links = [
   { name: 'Recibir envio', href: '/Recibir_envio', icon: ShoppingBagIcon },
   { name: 'Cierre contable', href: '/Cierre_contable', icon: LockClosedIcon },
   { name: 'Almacen', href: '/Almacen', icon: HomeIcon },
+  { name: 'Gestion contraseñas', href: '/Gestion', icon: UserGroupIcon },
   { name: 'Estado de cuenta', href: '/Estado_de_cuenta', icon: CurrencyDollarIcon },
-  {name: 'Guia para la app',href: '/Guia',icon: DocumentDuplicateIcon,},
+  { name: 'Guia para la app',href: '/Guia',icon: DocumentDuplicateIcon,},
   { name: 'Soporte', href: '/Soporte', icon: UserGroupIcon },
+  
 ];
 
 export default function NavLinks() {

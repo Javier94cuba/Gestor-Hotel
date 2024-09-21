@@ -1,5 +1,5 @@
 import { FetchFilteredIngresos } from '@/app/lib/data';
-import Btn_editar from '@/app/ui/envios/btn_editar'
+import Btn_editar_almacen from '@/app/ui/envios/btn_editar_almacen'
 import Btn_eliminar from '@/app/ui/envios/btn_eliminar'
 import Btn_descargar from '@/app/ui/envios/btn_descargar'
 import Link from 'next/link';
@@ -20,13 +20,12 @@ export default async function IngresosTable({
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
             <h1 className="text-base font-semibold leading-6 text-gray-900">Ingreso de productos MercaNeptuno</h1>
-            <p className="mt-2 text-sm text-gray-700">
-              Lista de todos los ingresos a la tienda Merca neptuno, inlcuye nombre del producto, cantidad.
-            </p>
+            <p className="mt-2 text-sm text-gray-700 pt-1">
+              Lista de todos los ingresos a la tienda, actualizar por producto Precio de costo, Precio de venta, Ipv, Merma.</p>
           </div>
           <div className="flex mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <div className='mt-7 mr-4'>
-            <Search placeholder={"Envios"}/>
+            <Search placeholder={"Productos"}/>
             </div>
             <Link
             key={link.name}
@@ -56,7 +55,7 @@ export default async function IngresosTable({
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
                       Cantidad
                     </th>
-                    <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900 text-center">
+                    {/* <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900 text-center">
                       Provedor
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
@@ -64,12 +63,21 @@ export default async function IngresosTable({
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
                    Fecha
+                    </th> */}
+                    <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
+                   IPV
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
-                   Costo total
+                   Precio de costo
                     </th>
                     <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
-                   Adicionado
+                   Precio de Venta
+                    </th>
+                    <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
+                   Inversion total
+                    </th>
+                    <th scope="col" className="px-3 py-3.5  text-sm font-semibold text-gray-900 text-center">
+                   Merma
                     </th>
                     <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
                       <button className="sr-only">Edit</button>
@@ -86,13 +94,16 @@ export default async function IngresosTable({
                         { value.name }
                       </td>
                       <td className="text-center px-3 py-4 text-sm text-gray-500">{ value.amount}</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.proveedor }</td>
+                      {/* <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.proveedor }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.almacenero }</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.fecha }</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">30000</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">Si</td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.fecha }</td> */}
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center"></td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center"></td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center"></td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center"></td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center"></td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 flex space-x-2 ">
-                        <Btn_editar id={value.id}/> 
+                        <Btn_editar_almacen id={value.id}/> 
                         <Btn_eliminar  id={value.id}/>
                       </td>
                     </tr>
