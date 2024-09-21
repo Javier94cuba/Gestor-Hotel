@@ -119,7 +119,7 @@ export default function Form() {
             <div className="relative">
               <input
                 id="adicionado"
-                name="fadicionado"
+                name="adicionado"
                 type="string"
                 placeholder="En blanco, modifica el almacenero"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
@@ -139,7 +139,7 @@ export default function Form() {
               <input
                 id="c_total"
                 name="c_total"
-                type="string"
+                type="number"
                 placeholder="Pago al proveedor"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               />
