@@ -42,7 +42,7 @@ export async function crearEnvio(formdata){
     })
     const numero=4;
       await sql`
-       INSERT INTO ingresos2 (almacenero,name,amount,proveedor,fecha,numero,adicionado,ctotal)
+       INSERT INTO ingresos (almacenero,name,amount,proveedor,fecha,numero,adicionado,ctotal)
        VALUES (${almacenero},${name},${amount},${proveedor},${fecha},${numero},${adicionado},${ctotal})
    `
 
