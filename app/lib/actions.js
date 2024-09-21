@@ -11,12 +11,12 @@ const CreateEnvio = z.object({
     amount:z.coerce.number(),
     proveedor:z.string(),
     fecha:z.string(),
-    ipv:z.number(),
-    merma:z.number(),
-    p_costo:z.number(),
-    p_venta:z.number(),
+    ipv:z.coerce.number(),
+    merma:z.coerce.number(),
+    p_costo:z.coerce.number(),
+    p_venta:z.coerce.number(),
     adicionado:z.string(),
-    ctotal:z.number(),
+    ctotal:z.coerce.number(),
     producto:z.string()
 })
 
@@ -38,7 +38,7 @@ export async function crearEnvio(formdata){
         proveedor: formdata.get('proveedor'),
         fecha: formdata.get('fecha'),
         adicionado:formdata.get('adicionado'),
-        ctotal:formdata.get('ctotal')
+        ctotal: formdata.get('ctotal'),
     })
     const numero=4;
       await sql`
