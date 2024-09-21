@@ -58,6 +58,8 @@ const UpdateIngresos = z.object({
     amount:z.coerce.number(),
     proveedor:z.string(),
     fecha:z.string(),
+    adicionado:z.string(),
+    c_total:z.number(),
 })
 
 const UpdateIngresosForm = UpdateIngresos.omit({
