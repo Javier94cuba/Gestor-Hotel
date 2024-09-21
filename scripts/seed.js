@@ -4,7 +4,7 @@ const {
   customers,
   revenue,
   users,
-  ingresos,
+  ingresos2,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
