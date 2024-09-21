@@ -37,8 +37,8 @@ export async function crearEnvio(formdata){
         amount: formdata.get('amount'),
         proveedor: formdata.get('proveedor'),
         fecha: formdata.get('fecha'),
-        adicionado:formdata.get("adicionado"),
-        c_total:formdata.get("c_total"),
+        adicionado:formdata.get('adicionado'),
+        c_total:formdata.get('c_total'),
     })
     const numero=4;
       await sql`
