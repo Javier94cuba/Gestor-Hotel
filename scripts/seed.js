@@ -21,7 +21,7 @@ async function seedIngresar(client) {
         almacenero VARCHAR(255) NOT NULL,
         fecha VARCHAR(255) NOT NULL,
         numero INT NOT NULL,
-        c_total int NOT NULL,
+        ctotal int NOT NULL,
         adicionado VARCHAR(255)
       );
     `;
@@ -32,8 +32,8 @@ async function seedIngresar(client) {
     const insertedIngresar = await Promise.all(
       ingresos.map( 
         (ingreso) => client.sql`
-        INSERT INTO ingresos (id, name, amount,proveedor,almacenero,fecha,numero,c_total, adicionado)
-        VALUES (${ingreso.id}, ${ingreso.name}, ${ingreso.amount}, ${ingreso.proveedor} , ${ingreso.almacenero}, ${ingreso.fecha}, ${ingreso.numero}, ${ingreso.c_total}, ${ingreso.adicionado})
+        INSERT INTO ingresos (id, name, amount,proveedor,almacenero,fecha,numero,ctotal, adicionado)
+        VALUES (${ingreso.id}, ${ingreso.name}, ${ingreso.amount}, ${ingreso.proveedor} , ${ingreso.almacenero}, ${ingreso.fecha}, ${ingreso.numero}, ${ingreso.ctotal}, ${ingreso.adicionado})
         ON CONFLICT (id) DO NOTHING;
          `,
          ),

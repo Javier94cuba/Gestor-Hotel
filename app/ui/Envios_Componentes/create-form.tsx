@@ -137,8 +137,8 @@ export default function Form() {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
-                id="c_total"
-                name="c_total"
+                id="ctotal"
+                name="ctotal"
                 type="number"
                 placeholder="Pago al proveedor"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"

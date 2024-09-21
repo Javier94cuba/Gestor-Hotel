@@ -17,7 +17,7 @@ export type Ingresar = {
   cantidad_total:number;
   adicionado:string;
   producto:string;
-  c_total:number;
+  ctotal:number;
   //Nombre, Cantidad, Proveedor, Almacenero, Fecha, precio de costo, precio de venta, IPV, Merma,
 }
 

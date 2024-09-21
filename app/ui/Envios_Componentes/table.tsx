@@ -90,7 +90,7 @@ export default async function IngresosTable({
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.almacenero }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{ value.fecha }</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{value.adicionado}</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{value.c_total}</td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{value.ctotal}</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 flex space-x-2 ">
                         <Btn_editar id={value.id}/> 
                         <Btn_eliminar  id={value.id}/>

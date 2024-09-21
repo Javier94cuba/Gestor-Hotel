@@ -16,7 +16,7 @@ const CreateEnvio = z.object({
     p_costo:z.number(),
     p_venta:z.number(),
     adicionado:z.string(),
-    c_total:z.number(),
+    ctotal:z.number(),
     producto:z.string()
 })
 
@@ -31,19 +31,19 @@ producto:true,
 })
 
 export async function crearEnvio(formdata){
-    const {almacenero,name,amount,proveedor,fecha,adicionado,c_total} = CreateEnvioForm.parse({
+    const {almacenero,name,amount,proveedor,fecha,adicionado,ctotal} = CreateEnvioForm.parse({
         almacenero: formdata.get('almacenero'),
         name: formdata.get('name'),
         amount: formdata.get('amount'),
         proveedor: formdata.get('proveedor'),
         fecha: formdata.get('fecha'),
         adicionado:formdata.get('adicionado'),
-        c_total:formdata.get('c_total'),
+        ctotal:formdata.get('ctotal')
     })
     const numero=4;
       await sql`
-       INSERT INTO ingresos (almacenero,name,amount,proveedor,fecha,numero,adicionado,c_total)
-       VALUES (${almacenero},${name},${amount},${proveedor},${fecha},${numero},${adicionado},${c_total})
+       INSERT INTO ingresos (almacenero,name,amount,proveedor,fecha,numero,adicionado,ctotal)
+       VALUES (${almacenero},${name},${amount},${proveedor},${fecha},${numero},${adicionado},${ctotal})
    `
 
    revalidatePath('/Recibir_envio')
@@ -59,7 +59,7 @@ const UpdateIngresos = z.object({
     proveedor:z.string(),
     fecha:z.string(),
     adicionado:z.string(),
-    c_total:z.number(),
+    ctotal:z.number(),
 })
 
 const UpdateIngresosForm = UpdateIngresos.omit({
